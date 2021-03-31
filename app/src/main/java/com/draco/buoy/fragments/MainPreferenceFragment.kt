@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import androidx.preference.*
 import com.draco.buoy.R
@@ -15,6 +16,25 @@ import com.google.android.material.snackbar.Snackbar
 
 class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var batterySaverManager: BatterySaverManager
+
+    private lateinit var advertiseIsEnabled: SwitchPreference
+    private lateinit var dataSaverEnabled: SwitchPreference
+    private lateinit var enableNightMode: SwitchPreference
+    private lateinit var launchBoostEnabled: SwitchPreference
+    private lateinit var vibrationEnabled: SwitchPreference
+    private lateinit var animationEnabled: SwitchPreference
+    private lateinit var soundTriggerEnabled: SwitchPreference
+    private lateinit var fullBackupDeferred: SwitchPreference
+    private lateinit var keyValueBackupDeferred: SwitchPreference
+    private lateinit var fireWallEnabled: SwitchPreference
+    private lateinit var gpsMode: ListPreference
+    private lateinit var adjustBrightnessEnabled: SwitchPreference
+    private lateinit var adjustBrightnessFactor: SeekBarPreference
+    private lateinit var forceAllAppsStandby: SwitchPreference
+    private lateinit var forceBackgroundCheck: SwitchPreference
+    private lateinit var optionalSensorsEnabled: SwitchPreference
+    private lateinit var aodEnabled: SwitchPreference
+    private lateinit var quickDozeEnabled: SwitchPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.main, rootKey)
@@ -37,7 +57,28 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        advertiseIsEnabled = findPreference(getString(R.string.pref_config_key_advertise_is_enabled))!!
+        dataSaverEnabled = findPreference(getString(R.string.pref_config_key_datasaver_enabled))!!
+        enableNightMode = findPreference(getString(R.string.pref_config_key_enable_night_mode))!!
+        launchBoostEnabled = findPreference(getString(R.string.pref_config_key_launch_boost_enabled))!!
+        vibrationEnabled = findPreference(getString(R.string.pref_config_key_vibration_enabled))!!
+        animationEnabled = findPreference(getString(R.string.pref_config_key_animation_enabled))!!
+        soundTriggerEnabled = findPreference(getString(R.string.pref_config_key_soundtrigger_enabled))!!
+        fullBackupDeferred = findPreference(getString(R.string.pref_config_key_fullbackup_deferred))!!
+        keyValueBackupDeferred = findPreference(getString(R.string.pref_config_key_keyvaluebackup_deferred))!!
+        fireWallEnabled = findPreference(getString(R.string.pref_config_key_firewall_enabled))!!
+        gpsMode = findPreference(getString(R.string.pref_config_key_gps_mode))!!
+        adjustBrightnessEnabled = findPreference(getString(R.string.pref_config_key_adjust_brightness_enabled))!!
+        adjustBrightnessFactor = findPreference(getString(R.string.pref_config_key_adjust_brightness_factor))!!
+        forceAllAppsStandby = findPreference(getString(R.string.pref_config_key_force_all_apps_standby))!!
+        forceBackgroundCheck = findPreference(getString(R.string.pref_config_key_force_background_check))!!
+        optionalSensorsEnabled = findPreference(getString(R.string.pref_config_key_optional_sensors_enabled))!!
+        aodEnabled = findPreference(getString(R.string.pref_config_key_aod_enabled))!!
+        quickDozeEnabled = findPreference(getString(R.string.pref_config_key_quick_doze_enabled))!!
+
         refreshSettings()
+        lockSettings()
 
         /**
          * On import text changed, apply the new configuration
@@ -90,6 +131,23 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
     }
 
     /**
+     * Lock specific settings if the Android version does not support it
+     */
+    private fun lockSettings() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            advertiseIsEnabled.isVisible = false
+            dataSaverEnabled.isVisible = false
+            enableNightMode.isVisible = false
+            launchBoostEnabled.isVisible = false
+            forceAllAppsStandby.isVisible = false
+            forceBackgroundCheck.isVisible = false
+            optionalSensorsEnabled.isVisible = false
+            aodEnabled.isVisible = false
+            quickDozeEnabled.isVisible = false
+        }
+    }
+
+    /**
      * Show the user a dialog where they can export the constants
      */
     private fun exportSettings() {
@@ -112,24 +170,24 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
                 it.import(currentProfileString)
         }
 
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_advertise_is_enabled))?.isChecked = currentProfile.advertiseIsEnabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_datasaver_enabled))?.isChecked = !currentProfile.dataSaverDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_enable_night_mode))?.isChecked = currentProfile.enableNightMode
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_launch_boost_enabled))?.isChecked = !currentProfile.launchBoostDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_vibration_enabled))?.isChecked = !currentProfile.vibrationDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_animation_enabled))?.isChecked = !currentProfile.animationDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_soundtrigger_enabled))?.isChecked = !currentProfile.soundTriggerDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_fullbackup_deferred))?.isChecked = currentProfile.fullBackupDeferred
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_keyvaluebackup_deferred))?.isChecked = currentProfile.keyValueBackupDeferred
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_firewall_enabled))?.isChecked = !currentProfile.fireWallDisabled
-        findPreference<ListPreference>(getString(R.string.pref_config_key_gps_mode))?.value = currentProfile.gpsMode.toString()
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_adjust_brightness_enabled))?.isChecked = !currentProfile.adjustBrightnessDisabled
-        findPreference<SeekBarPreference>(getString(R.string.pref_config_key_adjust_brightness_factor))?.value = (currentProfile.adjustBrightnessFactor * 100).toInt()
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_all_apps_standby))?.isChecked = currentProfile.forceAllAppsStandby
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_background_check))?.isChecked = currentProfile.forceBackgroundCheck
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_enabled))?.isChecked = !currentProfile.optionalSensorsDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))?.isChecked = !currentProfile.aodDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))?.isChecked = currentProfile.quickDozeEnabled
+        advertiseIsEnabled.isChecked = currentProfile.advertiseIsEnabled
+        dataSaverEnabled.isChecked = !currentProfile.dataSaverDisabled
+        enableNightMode.isChecked = currentProfile.enableNightMode
+        launchBoostEnabled.isChecked = !currentProfile.launchBoostDisabled
+        vibrationEnabled.isChecked = !currentProfile.vibrationDisabled
+        animationEnabled.isChecked = !currentProfile.animationDisabled
+        soundTriggerEnabled.isChecked = !currentProfile.soundTriggerDisabled
+        fullBackupDeferred.isChecked = currentProfile.fullBackupDeferred
+        keyValueBackupDeferred.isChecked = currentProfile.keyValueBackupDeferred
+        fireWallEnabled.isChecked = !currentProfile.fireWallDisabled
+        gpsMode.value = currentProfile.gpsMode.toString()
+        adjustBrightnessEnabled.isChecked = !currentProfile.adjustBrightnessDisabled
+        adjustBrightnessFactor.value = (currentProfile.adjustBrightnessFactor * 100).toInt()
+        forceAllAppsStandby.isChecked = currentProfile.forceAllAppsStandby
+        forceBackgroundCheck.isChecked = currentProfile.forceBackgroundCheck
+        optionalSensorsEnabled.isChecked = !currentProfile.optionalSensorsDisabled
+        aodEnabled.isChecked = !currentProfile.aodDisabled
+        quickDozeEnabled.isChecked = currentProfile.quickDozeEnabled
     }
 
     /**
@@ -137,24 +195,24 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
      */
     private fun applySettings() {
         val config = BatterySaverConstantsConfig(
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_advertise_is_enabled))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_datasaver_enabled))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_enable_night_mode))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_launch_boost_enabled))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_vibration_enabled))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_animation_enabled))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_soundtrigger_enabled))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_fullbackup_deferred))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_keyvaluebackup_deferred))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_firewall_enabled))!!.isChecked,
-            findPreference<ListPreference>(getString(R.string.pref_config_key_gps_mode))!!.value.toInt(),
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_adjust_brightness_enabled))!!.isChecked,
-            findPreference<SeekBarPreference>(getString(R.string.pref_config_key_adjust_brightness_factor))!!.value / 100f,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_all_apps_standby))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_background_check))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_enabled))!!.isChecked,
-            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))!!.isChecked
+            advertiseIsEnabled.isChecked,
+            !dataSaverEnabled.isChecked,
+            enableNightMode.isChecked,
+            !launchBoostEnabled.isChecked,
+            !vibrationEnabled.isChecked,
+            !animationEnabled.isChecked,
+            !soundTriggerEnabled.isChecked,
+            fullBackupDeferred.isChecked,
+            keyValueBackupDeferred.isChecked,
+            !fireWallEnabled.isChecked,
+            gpsMode.value.toInt(),
+            !adjustBrightnessEnabled.isChecked,
+            adjustBrightnessFactor.value / 100f,
+            forceAllAppsStandby.isChecked,
+            forceBackgroundCheck.isChecked,
+            !optionalSensorsEnabled.isChecked,
+            !aodEnabled.isChecked,
+            quickDozeEnabled.isChecked
         )
         batterySaverManager.apply(config)
         refreshSettings()

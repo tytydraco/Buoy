@@ -95,7 +95,7 @@
     <string name="pref_config_title_gps_mode">Location Mode</string>
     <string name="pref_config_summary_gps_mode">How location requests are handled in low power mode</string>
 
-    <string name="pref_config_key_adjust_brightness_enabled">adjust_brightness_disabled</string>
+    <string name="pref_config_key_adjust_brightness_enabled">adjust_brightness_enabled</string>
     <string name="pref_config_title_adjust_brightness_enabled">Adjust Brightness</string>
     <string name="pref_config_summary_adjust_brightness_enabled">Reduce the maximum brightness on the panel</string>
 
