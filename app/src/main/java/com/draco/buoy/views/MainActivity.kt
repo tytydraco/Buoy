@@ -2,16 +2,13 @@ package com.draco.buoy.views
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 import com.draco.buoy.R
 import com.draco.buoy.fragments.MainPreferenceFragment
 import com.draco.buoy.utils.PermissionUtils
-import com.draco.buoy.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: MainActivityViewModel by viewModels()
     private lateinit var preferences: FragmentContainerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
