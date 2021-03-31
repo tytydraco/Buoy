@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.Buoy" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorSecondary">@color/green</item>
+        <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:navigationBarColor">?colorSurface</item>
+    </style>
+</resources>
