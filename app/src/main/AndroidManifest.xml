@@ -29,6 +29,56 @@
         <receiver android:name=".receivers.ExternalProfileReceiver"
             android:exported="true"
             tools:ignore="ExportedReceiver" />
+
+        <service android:name=".services.TileResetService"
+            android:icon="@drawable/ic_baseline_api_24"
+            android:label="@string/pref_profile_title_reset"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.TileLightService"
+            android:icon="@drawable/ic_baseline_api_24"
+            android:label="@string/pref_profile_title_light"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.TileModerateService"
+            android:icon="@drawable/ic_baseline_api_24"
+            android:label="@string/pref_profile_title_moderate"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.TileHighService"
+            android:icon="@drawable/ic_baseline_api_24"
+            android:label="@string/pref_profile_title_high"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.TileExtremeService"
+            android:icon="@drawable/ic_baseline_api_24"
+            android:label="@string/pref_profile_title_extreme"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
