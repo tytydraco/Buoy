@@ -32,7 +32,7 @@ data class BatterySaverConstantsConfig(
                 "${BatterySaverConstants.ANIMATION_DISABLED}=$animationDisabled," +
                 "${BatterySaverConstants.SOUNDTRIGGER_DISABLED}=$soundTriggerDisabled," +
                 "${BatterySaverConstants.FULLBACKUP_DEFERRED}=$fullBackupDeferred," +
-                "${BatterySaverConstants.KEYVALUEBACKUP_DEFERRED}=$keyValueBackupDeferred" +
+                "${BatterySaverConstants.KEYVALUEBACKUP_DEFERRED}=$keyValueBackupDeferred," +
                 "${BatterySaverConstants.FIREWALL_DISABLED}=$fireWallDisabled," +
                 "${BatterySaverConstants.GPS_MODE}=$gpsMode," +
                 "${BatterySaverConstants.ADJUST_BRIGHTNESS_DISABLED}=$adjustBrightnessDisabled," +
@@ -44,7 +44,7 @@ data class BatterySaverConstantsConfig(
                 "${BatterySaverConstants.QUICK_DOZE_ENABLED}=$quickDozeEnabled"
     }
 
-    fun fromString(string: String) {
+    fun import(string: String) {
         val keyValueMap = string.split(",").associate {
             val (key, value) = it.split("=")
             key to value

@@ -65,6 +65,16 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     }
 
     /**
+     * Get the raw battery saver constants secure setting
+     */
+    fun getConstantsString(): String? {
+        return Settings.Global.getString(
+            contentResolver,
+            BatterySaverSecureSettings.BATTERY_SAVER_CONSTANTS
+        )
+    }
+
+    /**
      * Set the battery saver constants secure setting via a config
      */
     fun setConstantsConfig(config: BatterySaverConstantsConfig) {

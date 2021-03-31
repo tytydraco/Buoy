@@ -1,26 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/category_actions">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/category_profiles">
         <Preference
-            android:title="@string/profile_title_reset"
-            android:summary="@string/profile_summary_reset"
-            android:key="@string/profile_key_reset" />
+            android:title="@string/pref_profile_title_reset"
+            android:summary="@string/pref_profile_summary_reset"
+            android:key="@string/pref_profile_key_reset" />
         <Preference
-            android:title="@string/profile_title_light"
-            android:summary="@string/profile_summary_light"
-            android:key="@string/profile_key_light" />
+            android:title="@string/pref_profile_title_light"
+            android:summary="@string/pref_profile_summary_light"
+            android:key="@string/pref_profile_key_light" />
         <Preference
-            android:title="@string/profile_title_moderate"
-            android:summary="@string/profile_summary_moderate"
-            android:key="@string/profile_key_moderate" />
+            android:title="@string/pref_profile_title_moderate"
+            android:summary="@string/pref_profile_summary_moderate"
+            android:key="@string/pref_profile_key_moderate" />
         <Preference
-            android:title="@string/profile_title_high"
-            android:summary="@string/profile_summary_high"
-            android:key="@string/profile_key_high" />
+            android:title="@string/pref_profile_title_high"
+            android:summary="@string/pref_profile_summary_high"
+            android:key="@string/pref_profile_key_high" />
         <Preference
-            android:title="@string/profile_title_extreme"
-            android:summary="@string/profile_summary_extreme"
-            android:key="@string/profile_key_extreme" />
+            android:title="@string/pref_profile_title_extreme"
+            android:summary="@string/pref_profile_summary_extreme"
+            android:key="@string/pref_profile_key_extreme" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/category_config">
+        <SwitchPreference
+            android:title="@string/pref_config_title_advertise_is_enabled"
+            android:summary="@string/pref_config_summary_advertise_is_enabled"
+            android:key="@string/pref_config_key_advertise_is_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_datasaver_enabled"
+            android:summary="@string/pref_config_summary_datasaver_enabled"
+            android:key="@string/pref_config_key_datasaver_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_enable_night_mode"
+            android:summary="@string/pref_config_summary_enable_night_mode"
+            android:key="@string/pref_config_key_enable_night_mode" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_launch_boost_enabled"
+            android:summary="@string/pref_config_summary_launch_boost_enabled"
+            android:key="@string/pref_config_key_launch_boost_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_vibration_enabled"
+            android:summary="@string/pref_config_summary_vibration_enabled"
+            android:key="@string/pref_config_key_vibration_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_animation_enabled"
+            android:summary="@string/pref_config_summary_animation_enabled"
+            android:key="@string/pref_config_key_animation_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_soundtrigger_enabled"
+            android:summary="@string/pref_config_summary_soundtrigger_enabled"
+            android:key="@string/pref_config_key_soundtrigger_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_fullbackup_deferred"
+            android:summary="@string/pref_config_summary_fullbackup_deferred"
+            android:key="@string/pref_config_key_fullbackup_deferred" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_keyvaluebackup_deferred"
+            android:summary="@string/pref_config_summary_keyvaluebackup_deferred"
+            android:key="@string/pref_config_key_keyvaluebackup_deferred" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_firewall_enabled"
+            android:summary="@string/pref_config_summary_firewall_enabled"
+            android:key="@string/pref_config_key_firewall_enabled" />
+        <ListPreference
+            android:title="@string/pref_config_title_gps_mode"
+            android:summary="@string/pref_config_summary_gps_mode"
+            android:key="@string/pref_config_key_gps_mode"
+            android:entries="@array/location_modes_entries"
+            android:entryValues="@array/location_modes_values" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_adjust_brightness_enabled"
+            android:summary="@string/pref_config_summary_adjust_brightness_enabled"
+            android:key="@string/pref_config_key_adjust_brightness_enabled" />
+        <SeekBarPreference
+            android:title="@string/pref_config_title_adjust_brightness_factor"
+            android:summary="@string/pref_config_summary_adjust_brightness_factor"
+            android:key="@string/pref_config_key_adjust_brightness_factor"
+            android:dependency="@string/pref_config_key_adjust_brightness_enabled"
+            android:max="100"
+            app:showSeekBarValue="true"/>
+        <SwitchPreference
+            android:title="@string/pref_config_title_force_all_apps_standby"
+            android:summary="@string/pref_config_summary_force_all_apps_standby"
+            android:key="@string/pref_config_key_force_all_apps_standby" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_force_background_check"
+            android:summary="@string/pref_config_summary_force_background_check"
+            android:key="@string/pref_config_key_force_background_check" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_optional_sensors_disabled"
+            android:summary="@string/pref_config_summary_optional_sensors_disabled"
+            android:key="@string/pref_config_key_optional_sensors_disabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_aod_enabled"
+            android:summary="@string/pref_config_summary_aod_enabled"
+            android:key="@string/pref_config_key_aod_enabled" />
+        <SwitchPreference
+            android:title="@string/pref_config_title_quick_doze_enabled"
+            android:summary="@string/pref_config_summary_quick_doze_enabled"
+            android:key="@string/pref_config_key_quick_doze_enabled" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/category_about">
         <Preference
