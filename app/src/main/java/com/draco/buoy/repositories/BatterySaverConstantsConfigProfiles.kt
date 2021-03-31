@@ -4,15 +4,6 @@ import com.draco.buoy.models.BatterySaverConstantsConfig
 
 object BatterySaverConstantsConfigProfiles {
     /**
-     * Default battery saver configuration
-     * Fits between MODERATE and HIGH
-     *
-     * @see MODERATE
-     * @see HIGH
-     */
-    val DEFAULT = BatterySaverConstantsConfig()
-
-    /**
      * Keep the system running smoothly with some idle tweaks
      */
     val LIGHT = BatterySaverConstantsConfig(
@@ -34,8 +25,8 @@ object BatterySaverConstantsConfigProfiles {
     val MODERATE = BatterySaverConstantsConfig(
         launchBoostDisabled = false,
         vibrationDisabled = false,
-        fireWallDisabled = false,
         soundTriggerDisabled = false,
+        fireWallDisabled = false,
         gpsMode = PowerManagerLocationModes.THROTTLE_SCREEN_OFF,
         forceAllAppsStandby = false,
         forceBackgroundCheck = false,

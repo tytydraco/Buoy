@@ -14,7 +14,7 @@ class BatterySaverProfileRecyclerAdapter(
     contentResolver: ContentResolver
 ) : RecyclerView.Adapter<BatterySaverProfileRecyclerAdapter.ViewHolder>() {
     private val batterySaverProfiles = arrayOf(
-        BatterySaverConstantsConfigProfiles.DEFAULT,
+        null, /* Reset */
         BatterySaverConstantsConfigProfiles.LIGHT,
         BatterySaverConstantsConfigProfiles.MODERATE,
         BatterySaverConstantsConfigProfiles.HIGH,
@@ -36,12 +36,10 @@ class BatterySaverProfileRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val profile = batterySaverProfiles[position]
 
-        val isDefaultProfile = (profile == BatterySaverConstantsConfigProfiles.DEFAULT)
-
         when (profile) {
-            BatterySaverConstantsConfigProfiles.DEFAULT -> {
-                holder.title.setText(R.string.profile_title_default)
-                holder.description.setText(R.string.profile_description_default)
+            null -> {
+                holder.title.setText(R.string.profile_title_reset)
+                holder.description.setText(R.string.profile_description_reset)
             }
 
             BatterySaverConstantsConfigProfiles.LIGHT -> {
@@ -66,13 +64,17 @@ class BatterySaverProfileRecyclerAdapter(
         }
 
         holder.itemView.setOnClickListener {
-            /* Apply profile */
-            batterySaverManager.setConstantsConfig(profile)
-            /* Enable low power mode */
-            batterySaverManager.setLowPower(true)
-            /* If this is not the default config, set sticky and don't auto disable */
-            batterySaverManager.setLowPowerSticky(!isDefaultProfile)
-            batterySaverManager.setLowPowerStickyAutoDisableEnabled(isDefaultProfile)
+            if (profile == null) {
+                batterySaverManager.resetConstants()
+                batterySaverManager.setLowPower(false)
+                batterySaverManager.setLowPowerSticky(false)
+                batterySaverManager.setLowPowerStickyAutoDisableEnabled(true)
+            } else {
+                batterySaverManager.setConstantsConfig(profile)
+                batterySaverManager.setLowPower(true)
+                batterySaverManager.setLowPowerSticky(true)
+                batterySaverManager.setLowPowerStickyAutoDisableEnabled(false)
+            }
         }
     }
 

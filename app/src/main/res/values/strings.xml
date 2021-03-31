@@ -12,18 +12,18 @@
 
     <string name="snackbar_intent_failed">Could not handle this action</string>
 
-    <string name="profile_title_default">Default</string>
-    <string name="profile_description_default">The default configuration provided by the system</string>
+    <string name="profile_title_reset">Reset</string>
+    <string name="profile_description_reset">Undo all changes done by the app and restore secure settings to default.</string>
 
     <string name="profile_title_light">Light</string>
-    <string name="profile_description_light">The default configuration provided by the system</string>
+    <string name="profile_description_light">Marginally conserve battery without impeding the user experience</string>
 
     <string name="profile_title_moderate">Moderate</string>
-    <string name="profile_description_moderate">The default configuration provided by the system</string>
+    <string name="profile_description_moderate">Apply additional tweaks to save more battery without yet sacrificing performance</string>
 
     <string name="profile_title_high">High</string>
-    <string name="profile_description_high">The default configuration provided by the system</string>
+    <string name="profile_description_high">Sacrifice significant performance for a significant gain in power</string>
 
     <string name="profile_title_extreme">Extreme</string>
-    <string name="profile_description_extreme">The default configuration provided by the system</string>
+    <string name="profile_description_extreme">Apply the maximum changes available to save power at the expense of a fluid user experience</string>
 </resources>
