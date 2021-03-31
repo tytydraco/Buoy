@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Buoy</string>
+
+    <string name="title_permission">Permissions</string>
+
+    <string name="permission_title">Woah there!</string>
+    <string name="permission_message">We need a special permission to continue. Use ADB to run the following command (one line):</string>
+    <string name="permission_command">adb shell pm grant com.draco.buoy android.permission.WRITE_SECURE_SETTINGS</string>
+
+    <string name="please_wait">Waiting for permission</string>
+    <string name="copied">Copied to clipboard</string>
+
+    <string name="snackbar_intent_failed">Could not handle this action</string>
 </resources>
