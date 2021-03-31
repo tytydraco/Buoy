@@ -23,7 +23,7 @@ data class BatterySaverConstantsConfig(
     var quickDozeEnabled: Boolean =         false
 ) {
     override fun toString(): String {
-        return "${BatterySaverConstants.ADVERTISE_IS_ENABLED}=$advertiseIsEnabled," +
+        return  "${BatterySaverConstants.ADVERTISE_IS_ENABLED}=$advertiseIsEnabled," +
                 "${BatterySaverConstants.DATASAVER_DISABLED}=$dataSaverDisabled," +
                 "${BatterySaverConstants.ENABLE_NIGHT_MODE}=$enableNightMode," +
                 "${BatterySaverConstants.LAUNCH_BOOST_DISABLED}=$launchBoostDisabled," +
@@ -41,5 +41,35 @@ data class BatterySaverConstantsConfig(
                 "${BatterySaverConstants.OPTIONAL_SENSORS_DISABLED}=$optionalSensorsDisabled," +
                 "${BatterySaverConstants.AOD_DISABLED}=$aodDisabled," +
                 "${BatterySaverConstants.QUICK_DOZE_ENABLED}=$quickDozeEnabled"
+    }
+
+    fun fromString(string: String) {
+        val keyValueMap = string.split(",").associate {
+            val (key, value) = it.split("=")
+            key to value
+        }
+
+        for ((key, value) in keyValueMap) {
+            when (key) {
+                BatterySaverConstants.ADVERTISE_IS_ENABLED -> advertiseIsEnabled = value.toBoolean()
+                BatterySaverConstants.DATASAVER_DISABLED -> dataSaverDisabled = value.toBoolean()
+                BatterySaverConstants.ENABLE_NIGHT_MODE -> enableNightMode = value.toBoolean()
+                BatterySaverConstants.LAUNCH_BOOST_DISABLED -> launchBoostDisabled = value.toBoolean()
+                BatterySaverConstants.VIBRATION_DISABLED -> vibrationDisabled = value.toBoolean()
+                BatterySaverConstants.ANIMATION_DISABLED -> animationDisabled = value.toBoolean()
+                BatterySaverConstants.SOUNDTRIGGER_DISABLED -> soundTiggerDisabled = value.toBoolean()
+                BatterySaverConstants.FULLBACKUP_DEFERRED -> fullBackupDeferred = value.toBoolean()
+                BatterySaverConstants.KEYVALUEBACKUP_DEFERRED -> keyValueBackupDeferred = value.toBoolean()
+                BatterySaverConstants.FIREWALL_DISABLED -> fireWallDisabled = value.toBoolean()
+                BatterySaverConstants.GPS_MODE -> gpsMode = value.toInt()
+                BatterySaverConstants.ADJUST_BRIGHTNESS_DISABLED -> adjustBrightnessDisabled = value.toBoolean()
+                BatterySaverConstants.ADJUST_BRIGHTNESS_FACTOR -> adjustBrightnessFactor = value.toFloat()
+                BatterySaverConstants.FORCE_ALL_APPS_STANDBY -> forceAllAppsStandby = value.toBoolean()
+                BatterySaverConstants.FORCE_BACKGROUND_CHECK -> forceBackgroundCheck = value.toBoolean()
+                BatterySaverConstants.OPTIONAL_SENSORS_DISABLED -> optionalSensorsDisabled = value.toBoolean()
+                BatterySaverConstants.AOD_DISABLED -> aodDisabled = value.toBoolean()
+                BatterySaverConstants.QUICK_DOZE_ENABLED -> quickDozeEnabled = value.toBoolean()
+            }
+        }
     }
 }
