@@ -1,9 +1,11 @@
 package com.draco.buoy.recyclers
 
 import android.content.ContentResolver
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.draco.buoy.R
@@ -11,7 +13,7 @@ import com.draco.buoy.repositories.BatterySaverConstantsConfigProfiles
 import com.draco.buoy.utils.BatterySaverManager
 
 class BatterySaverProfileRecyclerAdapter(
-    contentResolver: ContentResolver
+    private val context: Context
 ) : RecyclerView.Adapter<BatterySaverProfileRecyclerAdapter.ViewHolder>() {
     private val batterySaverProfiles = arrayOf(
         null, /* Reset */
@@ -21,7 +23,7 @@ class BatterySaverProfileRecyclerAdapter(
         BatterySaverConstantsConfigProfiles.EXTREME,
     )
 
-    private val batterySaverManager = BatterySaverManager(contentResolver)
+    private val batterySaverManager = BatterySaverManager(context.contentResolver)
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val title = itemView.findViewById<TextView>(R.id.title)
@@ -64,6 +66,7 @@ class BatterySaverProfileRecyclerAdapter(
         }
 
         holder.itemView.setOnClickListener {
+            it.startAnimation(AnimationUtils.loadAnimation(context, R.anim.press))
             if (profile == null) {
                 batterySaverManager.resetConstants()
                 batterySaverManager.setLowPower(false)

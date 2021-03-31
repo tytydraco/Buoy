@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         recycler = findViewById(R.id.recycler_profile)
 
         recycler.apply {
-            adapter = BatterySaverProfileRecyclerAdapter(contentResolver)
+            adapter = BatterySaverProfileRecyclerAdapter(this@MainActivity)
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
 
