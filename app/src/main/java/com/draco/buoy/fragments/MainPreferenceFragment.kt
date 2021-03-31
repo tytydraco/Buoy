@@ -24,6 +24,11 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         batterySaverManager = BatterySaverManager(context.contentResolver)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        updateSettings()
+    }
+
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         when (preference.key) {
             getString(R.string.pref_profile_key_reset) -> resetProfile()
