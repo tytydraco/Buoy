@@ -1,9 +1,8 @@
 package com.draco.buoy.fragments
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.net.Uri
+import android.os.BatteryManager
 import android.os.Build
 import android.os.Bundle
 import androidx.preference.*
@@ -80,9 +79,17 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         refreshSettings()
         lockSettings()
 
-        /**
-         * On import text changed, apply the new configuration
-         */
+        /* Listen for power plugged or unplugged */
+        val connectionChangedIntent = IntentFilter()
+        connectionChangedIntent.addAction(Intent.ACTION_POWER_CONNECTED)
+        requireContext().registerReceiver(connectionChangedReceiver, connectionChangedIntent)
+
+        /* Check now */
+        val batteryManager = requireContext().getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+        if (batteryManager.isCharging)
+            pluggedInAlert()
+
+        /* On import text changed, apply the new configuration */
         findPreference<EditTextPreference>(getString(R.string.pref_key_import))?.let {
             it.setOnPreferenceChangeListener { _, newValue ->
                 batterySaverManager.setConstantsString(newValue as String)
@@ -90,6 +97,11 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
                 return@setOnPreferenceChangeListener true
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        requireContext().unregisterReceiver(connectionChangedReceiver)
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
@@ -236,5 +248,23 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
      */
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         applySettings()
+    }
+
+    /**
+     * Warn the user that low power mode won't work until the device is on battery power
+     */
+    private fun pluggedInAlert() {
+        Snackbar.make(requireView(), getString(R.string.snackbar_plugged_in), Snackbar.LENGTH_LONG).show()
+    }
+
+    /**
+     * On power change, enable or disable all settings
+     */
+    private var connectionChangedReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            when (intent.action) {
+                Intent.ACTION_POWER_CONNECTED -> pluggedInAlert()
+            }
+        }
     }
 }

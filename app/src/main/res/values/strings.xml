@@ -11,6 +11,7 @@
     <string name="copied">Copied to clipboard</string>
 
     <string name="snackbar_intent_failed">Could not handle this action</string>
+    <string name="snackbar_plugged_in">Buoy will take effect when device is unplugged</string>
 
     <string name="developer_url">https://www.github.com/tytydraco</string>
     <string name="source_url">https://www.github.com/tytydraco/Buoy</string>
