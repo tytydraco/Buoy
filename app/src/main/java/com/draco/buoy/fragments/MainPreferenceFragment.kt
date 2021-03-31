@@ -2,6 +2,7 @@ package com.draco.buoy.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import androidx.preference.*
@@ -12,7 +13,7 @@ import com.draco.buoy.utils.BatterySaverManager
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
 
-class MainPreferenceFragment : PreferenceFragmentCompat() {
+class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var batterySaverManager: BatterySaverManager
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -24,9 +25,19 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         batterySaverManager = BatterySaverManager(context.contentResolver)
     }
 
+    override fun onResume() {
+        super.onResume()
+        preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        updateSettings()
+        loadSettings()
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
@@ -49,7 +60,7 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         return true
     }
 
-    private fun updateSettings() {
+    private fun loadSettings() {
         val currentProfileString = batterySaverManager.getConstantsString()
         val currentProfile = BatterySaverConstantsConfig().also {
             if (currentProfileString != null)
@@ -76,12 +87,36 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))?.isChecked = currentProfile.quickDozeEnabled
     }
 
+    private fun saveSettings() {
+        val config = BatterySaverConstantsConfig(
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_advertise_is_enabled))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_datasaver_enabled))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_enable_night_mode))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_launch_boost_enabled))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_vibration_enabled))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_animation_enabled))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_soundtrigger_enabled))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_fullbackup_deferred))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_keyvaluebackup_deferred))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_firewall_enabled))!!.isChecked,
+            findPreference<ListPreference>(getString(R.string.pref_config_key_gps_mode))!!.value.toInt(),
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_adjust_brightness_enabled))!!.isChecked,
+            findPreference<SeekBarPreference>(getString(R.string.pref_config_key_adjust_brightness_factor))!!.value / 100f,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_all_apps_standby))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_background_check))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_disabled))!!.isChecked,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))!!.isChecked ,
+            findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))!!.isChecked
+        )
+        batterySaverManager.setConstantsConfig(config)
+    }
+
     private fun applyProfile(profile: BatterySaverConstantsConfig) {
         batterySaverManager.setConstantsConfig(profile)
         batterySaverManager.setLowPower(true)
         batterySaverManager.setLowPowerSticky(true)
         batterySaverManager.setLowPowerStickyAutoDisableEnabled(false)
-        updateSettings()
+        loadSettings()
     }
 
     private fun resetProfile() {
@@ -89,7 +124,7 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
         batterySaverManager.setLowPower(false)
         batterySaverManager.setLowPowerSticky(false)
         batterySaverManager.setLowPowerStickyAutoDisableEnabled(true)
-        updateSettings()
+        loadSettings()
     }
 
     private fun openURL(url: String) {
@@ -100,5 +135,9 @@ class MainPreferenceFragment : PreferenceFragmentCompat() {
             e.printStackTrace()
             Snackbar.make(requireView(), getString(R.string.snackbar_intent_failed), Snackbar.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        saveSettings()
     }
 }
