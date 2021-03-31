@@ -100,9 +100,9 @@
     <string name="pref_config_title_force_background_check">Force Background Check</string>
     <string name="pref_config_summary_force_background_check">::TODO::</string>
 
-    <string name="pref_config_key_optional_sensors_disabled">optional_sensors_disabled</string>
-    <string name="pref_config_title_optional_sensors_disabled">Disable Optional Sensors</string>
-    <string name="pref_config_summary_optional_sensors_disabled">Do not detect unnecessary sensor requests (i.e. edge sensors)</string>
+    <string name="pref_config_key_optional_sensors_enabled">optional_sensors_enabled</string>
+    <string name="pref_config_title_optional_sensors_enabled">Enable Optional Sensors</string>
+    <string name="pref_config_summary_optional_sensors_enabled">Allow unnecessary sensor requests (i.e. edge sensors)</string>
 
     <string name="pref_config_key_aod_enabled">aod_enabled</string>
     <string name="pref_config_title_aod_enabled">Always-On-Display Enabled</string>

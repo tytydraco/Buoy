@@ -82,8 +82,8 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         findPreference<SeekBarPreference>(getString(R.string.pref_config_key_adjust_brightness_factor))?.value = (currentProfile.adjustBrightnessFactor * 100).toInt()
         findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_all_apps_standby))?.isChecked = currentProfile.forceAllAppsStandby
         findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_background_check))?.isChecked = currentProfile.forceBackgroundCheck
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_disabled))?.isChecked = currentProfile.optionalSensorsDisabled
-        findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))?.isChecked = currentProfile.aodDisabled
+        findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_enabled))?.isChecked = !currentProfile.optionalSensorsDisabled
+        findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))?.isChecked = !currentProfile.aodDisabled
         findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))?.isChecked = currentProfile.quickDozeEnabled
     }
 
@@ -104,8 +104,8 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             findPreference<SeekBarPreference>(getString(R.string.pref_config_key_adjust_brightness_factor))!!.value / 100f,
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_all_apps_standby))!!.isChecked,
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_force_background_check))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_disabled))!!.isChecked,
-            findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))!!.isChecked ,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_optional_sensors_enabled))!!.isChecked,
+            !findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))!!.isChecked,
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))!!.isChecked
         )
         batterySaverManager.setConstantsConfig(config)

@@ -5,75 +5,92 @@
         <Preference
             android:title="@string/pref_profile_title_reset"
             android:summary="@string/pref_profile_summary_reset"
-            android:key="@string/pref_profile_key_reset" />
+            android:key="@string/pref_profile_key_reset"
+            android:icon="@drawable/ic_baseline_undo_24" />
         <Preference
             android:title="@string/pref_profile_title_light"
             android:summary="@string/pref_profile_summary_light"
-            android:key="@string/pref_profile_key_light" />
+            android:key="@string/pref_profile_key_light"
+            android:icon="@drawable/ic_baseline_api_24" />
         <Preference
             android:title="@string/pref_profile_title_moderate"
             android:summary="@string/pref_profile_summary_moderate"
-            android:key="@string/pref_profile_key_moderate" />
+            android:key="@string/pref_profile_key_moderate"
+            android:icon="@drawable/ic_baseline_api_24" />
         <Preference
             android:title="@string/pref_profile_title_high"
             android:summary="@string/pref_profile_summary_high"
-            android:key="@string/pref_profile_key_high" />
+            android:key="@string/pref_profile_key_high"
+            android:icon="@drawable/ic_baseline_api_24" />
         <Preference
             android:title="@string/pref_profile_title_extreme"
             android:summary="@string/pref_profile_summary_extreme"
-            android:key="@string/pref_profile_key_extreme" />
+            android:key="@string/pref_profile_key_extreme"
+            android:icon="@drawable/ic_baseline_api_24" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/category_config">
         <SwitchPreference
             android:title="@string/pref_config_title_advertise_is_enabled"
             android:summary="@string/pref_config_summary_advertise_is_enabled"
-            android:key="@string/pref_config_key_advertise_is_enabled" />
+            android:key="@string/pref_config_key_advertise_is_enabled"
+            android:icon="@drawable/ic_baseline_battery_alert_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_datasaver_enabled"
             android:summary="@string/pref_config_summary_datasaver_enabled"
-            android:key="@string/pref_config_key_datasaver_enabled" />
+            android:key="@string/pref_config_key_datasaver_enabled"
+            android:icon="@drawable/ic_baseline_data_saver_on_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_enable_night_mode"
             android:summary="@string/pref_config_summary_enable_night_mode"
-            android:key="@string/pref_config_key_enable_night_mode" />
+            android:key="@string/pref_config_key_enable_night_mode"
+            android:icon="@drawable/ic_baseline_mode_night_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_launch_boost_enabled"
             android:summary="@string/pref_config_summary_launch_boost_enabled"
-            android:key="@string/pref_config_key_launch_boost_enabled" />
+            android:key="@string/pref_config_key_launch_boost_enabled"
+            android:icon="@drawable/ic_baseline_flight_takeoff_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_vibration_enabled"
             android:summary="@string/pref_config_summary_vibration_enabled"
-            android:key="@string/pref_config_key_vibration_enabled" />
+            android:key="@string/pref_config_key_vibration_enabled"
+            android:icon="@drawable/ic_baseline_vibration_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_animation_enabled"
             android:summary="@string/pref_config_summary_animation_enabled"
-            android:key="@string/pref_config_key_animation_enabled" />
+            android:key="@string/pref_config_key_animation_enabled"
+            android:icon="@drawable/ic_baseline_animation_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_soundtrigger_enabled"
             android:summary="@string/pref_config_summary_soundtrigger_enabled"
-            android:key="@string/pref_config_key_soundtrigger_enabled" />
+            android:key="@string/pref_config_key_soundtrigger_enabled"
+            android:icon="@drawable/ic_baseline_volume_up_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_fullbackup_deferred"
             android:summary="@string/pref_config_summary_fullbackup_deferred"
-            android:key="@string/pref_config_key_fullbackup_deferred" />
+            android:key="@string/pref_config_key_fullbackup_deferred"
+            android:icon="@drawable/ic_baseline_cloud_upload_24"/>
         <SwitchPreference
             android:title="@string/pref_config_title_keyvaluebackup_deferred"
             android:summary="@string/pref_config_summary_keyvaluebackup_deferred"
-            android:key="@string/pref_config_key_keyvaluebackup_deferred" />
+            android:key="@string/pref_config_key_keyvaluebackup_deferred"
+            android:icon="@drawable/ic_baseline_vpn_key_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_firewall_enabled"
             android:summary="@string/pref_config_summary_firewall_enabled"
-            android:key="@string/pref_config_key_firewall_enabled" />
+            android:key="@string/pref_config_key_firewall_enabled"
+            android:icon="@drawable/ic_baseline_security_24" />
         <ListPreference
             android:title="@string/pref_config_title_gps_mode"
             android:summary="@string/pref_config_summary_gps_mode"
             android:key="@string/pref_config_key_gps_mode"
             android:entries="@array/location_modes_entries"
-            android:entryValues="@array/location_modes_values" />
+            android:entryValues="@array/location_modes_values"
+            android:icon="@drawable/ic_baseline_location_on_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_adjust_brightness_enabled"
             android:summary="@string/pref_config_summary_adjust_brightness_enabled"
-            android:key="@string/pref_config_key_adjust_brightness_enabled" />
+            android:key="@string/pref_config_key_adjust_brightness_enabled"
+            android:icon="@drawable/ic_baseline_brightness_low_24" />
         <SeekBarPreference
             android:title="@string/pref_config_title_adjust_brightness_factor"
             android:summary="@string/pref_config_summary_adjust_brightness_factor"
@@ -84,23 +101,28 @@
         <SwitchPreference
             android:title="@string/pref_config_title_force_all_apps_standby"
             android:summary="@string/pref_config_summary_force_all_apps_standby"
-            android:key="@string/pref_config_key_force_all_apps_standby" />
+            android:key="@string/pref_config_key_force_all_apps_standby"
+            android:icon="@drawable/ic_baseline_bed_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_force_background_check"
             android:summary="@string/pref_config_summary_force_background_check"
-            android:key="@string/pref_config_key_force_background_check" />
+            android:key="@string/pref_config_key_force_background_check"
+            android:icon="@drawable/ic_baseline_checklist_24" />
         <SwitchPreference
-            android:title="@string/pref_config_title_optional_sensors_disabled"
-            android:summary="@string/pref_config_summary_optional_sensors_disabled"
-            android:key="@string/pref_config_key_optional_sensors_disabled" />
+            android:title="@string/pref_config_title_optional_sensors_enabled"
+            android:summary="@string/pref_config_summary_optional_sensors_enabled"
+            android:key="@string/pref_config_key_optional_sensors_enabled"
+            android:icon="@drawable/ic_baseline_sensors_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_aod_enabled"
             android:summary="@string/pref_config_summary_aod_enabled"
-            android:key="@string/pref_config_key_aod_enabled" />
+            android:key="@string/pref_config_key_aod_enabled"
+            android:icon="@drawable/ic_baseline_aod_24" />
         <SwitchPreference
             android:title="@string/pref_config_title_quick_doze_enabled"
             android:summary="@string/pref_config_summary_quick_doze_enabled"
-            android:key="@string/pref_config_key_quick_doze_enabled" />
+            android:key="@string/pref_config_key_quick_doze_enabled"
+            android:icon="@drawable/ic_baseline_snooze_24" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/category_about">
         <Preference
