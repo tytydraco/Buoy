@@ -28,6 +28,18 @@
             android:key="@string/pref_profile_key_extreme"
             android:icon="@drawable/ic_baseline_api_24" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/category_share">
+        <Preference
+            android:title="@string/pref_title_export"
+            android:summary="@string/pref_summary_export"
+            android:key="@string/pref_key_export"
+            android:icon="@drawable/ic_baseline_upload_24" />
+        <EditTextPreference
+            android:title="@string/pref_title_import"
+            android:summary="@string/pref_summary_import"
+            android:key="@string/pref_key_import"
+            android:icon="@drawable/ic_baseline_download_24" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/category_config">
         <SwitchPreference
             android:title="@string/pref_config_title_advertise_is_enabled"

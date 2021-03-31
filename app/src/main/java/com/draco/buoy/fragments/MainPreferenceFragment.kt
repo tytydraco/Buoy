@@ -38,6 +38,14 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         loadSettings()
+
+        findPreference<EditTextPreference>(getString(R.string.pref_key_import))?.let {
+            it.setOnPreferenceChangeListener { _, newValue ->
+                batterySaverManager.setConstantsString(newValue as String)
+                loadSettings()
+                return@setOnPreferenceChangeListener true
+            }
+        }
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
@@ -47,6 +55,9 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             getString(R.string.pref_profile_key_moderate) -> applyProfile(BatterySaverConstantsConfigProfiles.MODERATE)
             getString(R.string.pref_profile_key_high) -> applyProfile(BatterySaverConstantsConfigProfiles.HIGH)
             getString(R.string.pref_profile_key_extreme) -> applyProfile(BatterySaverConstantsConfigProfiles.EXTREME)
+
+            getString(R.string.pref_key_export) -> exportSettings()
+            getString(R.string.pref_key_import) -> (preference as EditTextPreference).text = batterySaverManager.getConstantsString()
 
             getString(R.string.pref_developer_key) -> openURL(getString(R.string.developer_url))
             getString(R.string.pref_source_key) -> openURL(getString(R.string.source_url))
@@ -58,6 +69,15 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             else -> return super.onPreferenceTreeClick(preference)
         }
         return true
+    }
+
+    private fun exportSettings() {
+        val intent = Intent()
+            .setAction(Intent.ACTION_SEND)
+            .putExtra(Intent.EXTRA_TEXT, batterySaverManager.getConstantsString())
+            .setType("text/plain")
+        val chooser = Intent.createChooser(intent, getString(R.string.export_share_title))
+        startActivity(chooser)
     }
 
     private fun loadSettings() {
