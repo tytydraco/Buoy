@@ -10,7 +10,7 @@ data class BatterySaverConstantsConfig(
     var launchBoostDisabled: Boolean =      true,
     var vibrationDisabled: Boolean =        true,
     var animationDisabled: Boolean =        false,
-    var soundTiggerDisabled: Boolean =      true,
+    var soundTriggerDisabled: Boolean =     true,
     var fullBackupDeferred: Boolean =       true,
     var keyValueBackupDeferred: Boolean =   true,
     var fireWallDisabled: Boolean =         true,
@@ -30,7 +30,7 @@ data class BatterySaverConstantsConfig(
                 "${BatterySaverConstants.LAUNCH_BOOST_DISABLED}=$launchBoostDisabled," +
                 "${BatterySaverConstants.VIBRATION_DISABLED}=$vibrationDisabled," +
                 "${BatterySaverConstants.ANIMATION_DISABLED}=$animationDisabled," +
-                "${BatterySaverConstants.SOUNDTRIGGER_DISABLED}=$soundTiggerDisabled," +
+                "${BatterySaverConstants.SOUNDTRIGGER_DISABLED}=$soundTriggerDisabled," +
                 "${BatterySaverConstants.FULLBACKUP_DEFERRED}=$fullBackupDeferred," +
                 "${BatterySaverConstants.KEYVALUEBACKUP_DEFERRED}=$keyValueBackupDeferred" +
                 "${BatterySaverConstants.FIREWALL_DISABLED}=$fireWallDisabled," +
@@ -58,7 +58,7 @@ data class BatterySaverConstantsConfig(
                 BatterySaverConstants.LAUNCH_BOOST_DISABLED -> launchBoostDisabled = value.toBoolean()
                 BatterySaverConstants.VIBRATION_DISABLED -> vibrationDisabled = value.toBoolean()
                 BatterySaverConstants.ANIMATION_DISABLED -> animationDisabled = value.toBoolean()
-                BatterySaverConstants.SOUNDTRIGGER_DISABLED -> soundTiggerDisabled = value.toBoolean()
+                BatterySaverConstants.SOUNDTRIGGER_DISABLED -> soundTriggerDisabled = value.toBoolean()
                 BatterySaverConstants.FULLBACKUP_DEFERRED -> fullBackupDeferred = value.toBoolean()
                 BatterySaverConstants.KEYVALUEBACKUP_DEFERRED -> keyValueBackupDeferred = value.toBoolean()
                 BatterySaverConstants.FIREWALL_DISABLED -> fireWallDisabled = value.toBoolean()
