@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/category_actions">
+        <Preference
+            android:title="@string/profile_title_reset"
+            android:summary="@string/profile_summary_reset"
+            android:key="@string/profile_key_reset" />
+        <Preference
+            android:title="@string/profile_title_light"
+            android:summary="@string/profile_summary_light"
+            android:key="@string/profile_key_light" />
+        <Preference
+            android:title="@string/profile_title_moderate"
+            android:summary="@string/profile_summary_moderate"
+            android:key="@string/profile_key_moderate" />
+        <Preference
+            android:title="@string/profile_title_high"
+            android:summary="@string/profile_summary_high"
+            android:key="@string/profile_key_high" />
+        <Preference
+            android:title="@string/profile_title_extreme"
+            android:summary="@string/profile_summary_extreme"
+            android:key="@string/profile_key_extreme" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/category_about">
+        <Preference
+            android:title="@string/pref_developer_title"
+            android:summary="@string/pref_developer_summary"
+            android:key="@string/pref_developer_key"
+            android:icon="@drawable/ic_baseline_person_pin_24" />
+        <Preference
+            android:title="@string/pref_source_title"
+            android:summary="@string/pref_source_summary"
+            android:key="@string/pref_source_key"
+            android:icon="@drawable/ic_baseline_code_24" />
+        <Preference
+            android:title="@string/pref_contact_title"
+            android:summary="@string/pref_contact_summary"
+            android:key="@string/pref_contact_key"
+            android:icon="@drawable/ic_baseline_email_24" />
+        <Preference
+            android:title="@string/pref_licenses_title"
+            android:summary="@string/pref_licenses_summary"
+            android:key="@string/pref_licenses_key"
+            android:icon="@drawable/ic_baseline_insert_drive_file_24" />
+    </PreferenceCategory>
+</PreferenceScreen>

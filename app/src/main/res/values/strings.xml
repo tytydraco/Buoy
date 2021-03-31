@@ -12,18 +12,46 @@
 
     <string name="snackbar_intent_failed">Could not handle this action</string>
 
+    <string name="developer_url">https://www.github.com/tytydraco</string>
+    <string name="source_url">https://www.github.com/tytydraco/Buoy</string>
+    <string name="contact_url">mailto:tylernij@gmail.com</string>
+
+    <string name="category_actions">Actions</string>
+    <string name="category_about">About</string>
+
+    <string name="profile_key_reset">reset</string>
     <string name="profile_title_reset">Reset</string>
-    <string name="profile_description_reset">Undo all changes done by the app and restore secure settings to default.</string>
+    <string name="profile_summary_reset">Undo all changes done by the app and restore secure settings to default</string>
 
+    <string name="profile_key_light">light</string>
     <string name="profile_title_light">Light</string>
-    <string name="profile_description_light">Marginally conserve battery without impeding the user experience</string>
+    <string name="profile_summary_light">Marginally conserve battery without impeding the user experience</string>
 
+    <string name="profile_key_moderate">moderate</string>
     <string name="profile_title_moderate">Moderate</string>
-    <string name="profile_description_moderate">Apply additional tweaks to save more battery without yet sacrificing performance</string>
+    <string name="profile_summary_moderate">Apply additional tweaks to save more battery without yet sacrificing performance</string>
 
+    <string name="profile_key_high">high</string>
     <string name="profile_title_high">High</string>
-    <string name="profile_description_high">Sacrifice significant performance for a significant gain in power</string>
+    <string name="profile_summary_high">Sacrifice significant performance for a significant gain in power</string>
 
+    <string name="profile_key_extreme">extreme</string>
     <string name="profile_title_extreme">Extreme</string>
-    <string name="profile_description_extreme">Apply the maximum changes available to save power at the expense of a fluid user experience</string>
+    <string name="profile_summary_extreme">Apply the maximum changes available to save power at the expense of a fluid user experience</string>
+
+    <string name="pref_developer_title">Developer</string>
+    <string name="pref_developer_summary">Tyler Nijmeh</string>
+    <string name="pref_developer_key">developer</string>
+
+    <string name="pref_source_title">Source code</string>
+    <string name="pref_source_summary">Check out this project on GitHub</string>
+    <string name="pref_source_key">source</string>
+
+    <string name="pref_contact_title">Contact</string>
+    <string name="pref_contact_summary">Email me with questions, comments, and concerns</string>
+    <string name="pref_contact_key">contact</string>
+
+    <string name="pref_licenses_title">Licenses</string>
+    <string name="pref_licenses_summary">View the open source licenses</string>
+    <string name="pref_licenses_key">licenses</string>
 </resources>
