@@ -66,7 +66,7 @@
 
     <string name="pref_config_key_soundtrigger_enabled">soundtrigger_enabled</string>
     <string name="pref_config_title_soundtrigger_enabled">Enable Sound Triggers</string>
-    <string name="pref_config_summary_soundtrigger_enabled">::TODO::</string>
+    <string name="pref_config_summary_soundtrigger_enabled">Disable the SoundTrigger hardware API</string>
 
     <string name="pref_config_key_fullbackup_deferred">fullbackup_deferred</string>
     <string name="pref_config_title_fullbackup_deferred">Defer Full Backups</string>
@@ -98,7 +98,7 @@
 
     <string name="pref_config_key_force_background_check">force_background_check</string>
     <string name="pref_config_title_force_background_check">Force Background Check</string>
-    <string name="pref_config_summary_force_background_check">::TODO::</string>
+    <string name="pref_config_summary_force_background_check">Stop background services for idle processes</string>
 
     <string name="pref_config_key_optional_sensors_enabled">optional_sensors_enabled</string>
     <string name="pref_config_title_optional_sensors_enabled">Enable Optional Sensors</string>
