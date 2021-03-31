@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.preference.*
 import com.draco.buoy.R
 import com.draco.buoy.models.BatterySaverConstantsConfig
-import com.draco.buoy.repositories.BatterySaverConstantsConfigProfiles
+import com.draco.buoy.repositories.profiles.BatterySaverConstantsConfigProfiles
 import com.draco.buoy.utils.BatterySaverManager
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.google.android.material.snackbar.Snackbar
@@ -37,12 +37,12 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        loadSettings()
+        refreshSettings()
 
         findPreference<EditTextPreference>(getString(R.string.pref_key_import))?.let {
             it.setOnPreferenceChangeListener { _, newValue ->
                 batterySaverManager.setConstantsString(newValue as String)
-                loadSettings()
+                refreshSettings()
                 return@setOnPreferenceChangeListener true
             }
         }
@@ -50,11 +50,26 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         when (preference.key) {
-            getString(R.string.pref_profile_key_reset) -> resetProfile()
-            getString(R.string.pref_profile_key_light) -> applyProfile(BatterySaverConstantsConfigProfiles.LIGHT)
-            getString(R.string.pref_profile_key_moderate) -> applyProfile(BatterySaverConstantsConfigProfiles.MODERATE)
-            getString(R.string.pref_profile_key_high) -> applyProfile(BatterySaverConstantsConfigProfiles.HIGH)
-            getString(R.string.pref_profile_key_extreme) -> applyProfile(BatterySaverConstantsConfigProfiles.EXTREME)
+            getString(R.string.pref_profile_key_reset) -> {
+                batterySaverManager.reset()
+                refreshSettings()
+            }
+            getString(R.string.pref_profile_key_light) -> {
+                batterySaverManager.apply(BatterySaverConstantsConfigProfiles.LIGHT)
+                refreshSettings()
+            }
+            getString(R.string.pref_profile_key_moderate) -> {
+                batterySaverManager.apply(BatterySaverConstantsConfigProfiles.MODERATE)
+                refreshSettings()
+            }
+            getString(R.string.pref_profile_key_high) -> {
+                batterySaverManager.apply(BatterySaverConstantsConfigProfiles.HIGH)
+                refreshSettings()
+            }
+            getString(R.string.pref_profile_key_extreme) -> {
+                batterySaverManager.apply(BatterySaverConstantsConfigProfiles.EXTREME)
+                refreshSettings()
+            }
 
             getString(R.string.pref_key_export) -> exportSettings()
             getString(R.string.pref_key_import) -> (preference as EditTextPreference).text = batterySaverManager.getConstantsString()
@@ -80,7 +95,7 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         startActivity(chooser)
     }
 
-    private fun loadSettings() {
+    private fun refreshSettings() {
         val currentProfileString = batterySaverManager.getConstantsString()
         val currentProfile = BatterySaverConstantsConfig().also {
             if (currentProfileString != null)
@@ -128,24 +143,8 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             !findPreference<SwitchPreference>(getString(R.string.pref_config_key_aod_enabled))!!.isChecked,
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))!!.isChecked
         )
-        batterySaverManager.setConstantsConfig(config)
-        applyProfile(config)
-    }
-
-    private fun applyProfile(profile: BatterySaverConstantsConfig) {
-        batterySaverManager.setConstantsConfig(profile)
-        batterySaverManager.setLowPower(true)
-        batterySaverManager.setLowPowerSticky(true)
-        batterySaverManager.setLowPowerStickyAutoDisableEnabled(false)
-        loadSettings()
-    }
-
-    private fun resetProfile() {
-        batterySaverManager.resetConstants()
-        batterySaverManager.setLowPower(false)
-        batterySaverManager.setLowPowerSticky(false)
-        batterySaverManager.setLowPowerStickyAutoDisableEnabled(true)
-        loadSettings()
+        batterySaverManager.apply(config)
+        refreshSettings()
     }
 
     private fun openURL(url: String) {

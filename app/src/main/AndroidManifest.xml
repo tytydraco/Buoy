@@ -25,6 +25,10 @@
 
         <activity android:name=".views.PermissionActivity"
             android:label="@string/title_permission"/>
+
+        <receiver android:name=".receivers.ExternalProfileReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
     </application>
 
 </manifest>

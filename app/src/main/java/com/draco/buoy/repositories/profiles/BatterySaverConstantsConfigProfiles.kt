@@ -1,6 +1,7 @@
-package com.draco.buoy.repositories
+package com.draco.buoy.repositories.profiles
 
 import com.draco.buoy.models.BatterySaverConstantsConfig
+import com.draco.buoy.repositories.constants.PowerManagerLocationModes
 
 object BatterySaverConstantsConfigProfiles {
     /**

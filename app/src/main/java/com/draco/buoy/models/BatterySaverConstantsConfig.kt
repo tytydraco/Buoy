@@ -1,7 +1,7 @@
 package com.draco.buoy.models
 
-import com.draco.buoy.repositories.BatterySaverConstants
-import com.draco.buoy.repositories.PowerManagerLocationModes
+import com.draco.buoy.repositories.constants.BatterySaverConstants
+import com.draco.buoy.repositories.constants.PowerManagerLocationModes
 
 data class BatterySaverConstantsConfig(
     var advertiseIsEnabled: Boolean =       true,

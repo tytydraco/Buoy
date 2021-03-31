@@ -1,4 +1,4 @@
-package com.draco.buoy.repositories
+package com.draco.buoy.repositories.constants
 
 /**
  * Expose secure settings hidden in the Android APIs

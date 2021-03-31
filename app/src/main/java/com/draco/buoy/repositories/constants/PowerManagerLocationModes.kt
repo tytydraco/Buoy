@@ -1,4 +1,4 @@
-package com.draco.buoy.repositories
+package com.draco.buoy.repositories.constants
 
 import android.os.PowerManager
 

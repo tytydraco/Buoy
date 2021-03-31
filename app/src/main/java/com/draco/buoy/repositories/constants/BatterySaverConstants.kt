@@ -1,4 +1,4 @@
-package com.draco.buoy.repositories
+package com.draco.buoy.repositories.constants
 
 object BatterySaverConstants {
     const val ADVERTISE_IS_ENABLED =        "advertise_is_enabled"
