@@ -129,6 +129,7 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))!!.isChecked
         )
         batterySaverManager.setConstantsConfig(config)
+        applyProfile(config)
     }
 
     private fun applyProfile(profile: BatterySaverConstantsConfig) {
