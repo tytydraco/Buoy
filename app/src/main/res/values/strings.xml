@@ -11,4 +11,19 @@
     <string name="copied">Copied to clipboard</string>
 
     <string name="snackbar_intent_failed">Could not handle this action</string>
+
+    <string name="profile_title_default">Default</string>
+    <string name="profile_description_default">The default configuration provided by the system</string>
+
+    <string name="profile_title_light">Light</string>
+    <string name="profile_description_light">The default configuration provided by the system</string>
+
+    <string name="profile_title_moderate">Moderate</string>
+    <string name="profile_description_moderate">The default configuration provided by the system</string>
+
+    <string name="profile_title_high">High</string>
+    <string name="profile_description_high">The default configuration provided by the system</string>
+
+    <string name="profile_title_extreme">Extreme</string>
+    <string name="profile_description_extreme">The default configuration provided by the system</string>
 </resources>
