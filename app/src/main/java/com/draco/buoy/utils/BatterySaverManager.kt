@@ -20,7 +20,7 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     /**
      * Enable or disable low power mode
      */
-    fun setBatterySaverState(state: Boolean) {
+    fun setLowPower(state: Boolean) {
         val intBool = if (state) 1 else 0
         Settings.Global.putInt(
             contentResolver,
@@ -30,13 +30,27 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     }
 
     /**
-     * Get current low power state
+     * Enable or disable low power sticky mode
      */
-    fun getBatteryPowerSaverState(): Boolean {
-        return Settings.Global.getInt(
+    fun setLowPowerSticky(state: Boolean) {
+        val intBool = if (state) 1 else 0
+        Settings.Global.putInt(
             contentResolver,
-            BatterySaverSecureSettings.LOW_POWER
-        ) == 1
+            BatterySaverSecureSettings.LOW_POWER_STICKY,
+            intBool
+        )
+    }
+
+    /**
+     * Enable or disable low power sticky auto disable mode
+     */
+    fun setLowPowerStickyAutoDisableEnabled(state: Boolean) {
+        val intBool = if (state) 1 else 0
+        Settings.Global.putInt(
+            contentResolver,
+            BatterySaverSecureSettings.LOW_POWER_STICKY_AUTO_DISABLE_ENABLED,
+            intBool
+        )
     }
 
     /**

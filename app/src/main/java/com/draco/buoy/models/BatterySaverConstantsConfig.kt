@@ -1,26 +1,27 @@
 package com.draco.buoy.models
 
 import com.draco.buoy.repositories.BatterySaverConstants
+import com.draco.buoy.repositories.PowerManagerLocationModes
 
 data class BatterySaverConstantsConfig(
-    var advertiseIsEnabled: Boolean =       false,
-    var dataSaverDisabled: Boolean =        false,
-    var enableNightMode: Boolean =          false,
-    var launchBoostDisabled: Boolean =      false,
-    var vibrationDisabled: Boolean =        false,
+    var advertiseIsEnabled: Boolean =       true,
+    var dataSaverDisabled: Boolean =        true,
+    var enableNightMode: Boolean =          true,
+    var launchBoostDisabled: Boolean =      true,
+    var vibrationDisabled: Boolean =        true,
     var animationDisabled: Boolean =        false,
-    var soundTiggerDisabled: Boolean =      false,
-    var fullBackupDeferred: Boolean =       false,
-    var keyValueBackupDeferred: Boolean =   false,
-    var fireWallDisabled: Boolean =         false,
-    var gpsMode: Int =                      0,
-    var adjustBrightnessDisabled: Boolean = false,
-    var adjustBrightnessFactor: Float =     1f,
-    var forceAllAppsStandby: Boolean =      false,
-    var forceBackgroundCheck: Boolean =     false,
-    var optionalSensorsDisabled: Boolean =  false,
-    var aodDisabled: Boolean =              false,
-    var quickDozeEnabled: Boolean =         false
+    var soundTiggerDisabled: Boolean =      true,
+    var fullBackupDeferred: Boolean =       true,
+    var keyValueBackupDeferred: Boolean =   true,
+    var fireWallDisabled: Boolean =         true,
+    var gpsMode: Int =                      PowerManagerLocationModes.ALL_DISABLED_SCREEN_OFF,
+    var adjustBrightnessDisabled: Boolean = true,
+    var adjustBrightnessFactor: Float =     0.5f,
+    var forceAllAppsStandby: Boolean =      true,
+    var forceBackgroundCheck: Boolean =     true,
+    var optionalSensorsDisabled: Boolean =  true,
+    var aodDisabled: Boolean =              true,
+    var quickDozeEnabled: Boolean =         true
 ) {
     override fun toString(): String {
         return  "${BatterySaverConstants.ADVERTISE_IS_ENABLED}=$advertiseIsEnabled," +
