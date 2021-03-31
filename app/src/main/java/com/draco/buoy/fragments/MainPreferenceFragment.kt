@@ -39,6 +39,9 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         super.onActivityCreated(savedInstanceState)
         refreshSettings()
 
+        /**
+         * On import text changed, apply the new configuration
+         */
         findPreference<EditTextPreference>(getString(R.string.pref_key_import))?.let {
             it.setOnPreferenceChangeListener { _, newValue ->
                 batterySaverManager.setConstantsString(newValue as String)
@@ -86,6 +89,9 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         return true
     }
 
+    /**
+     * Show the user a dialog where they can export the constants
+     */
     private fun exportSettings() {
         val intent = Intent()
             .setAction(Intent.ACTION_SEND)
@@ -95,7 +101,11 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         startActivity(chooser)
     }
 
+    /**
+     * Update the UI to show the new constants
+     */
     private fun refreshSettings() {
+        /* Take existing constants and apply to the default config as overrides */
         val currentProfileString = batterySaverManager.getConstantsString()
         val currentProfile = BatterySaverConstantsConfig().also {
             if (currentProfileString != null)
@@ -122,7 +132,10 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         findPreference<SwitchPreference>(getString(R.string.pref_config_key_quick_doze_enabled))?.isChecked = currentProfile.quickDozeEnabled
     }
 
-    private fun saveSettings() {
+    /**
+     * Take the UI settings and apply them as constants
+     */
+    private fun applySettings() {
         val config = BatterySaverConstantsConfig(
             findPreference<SwitchPreference>(getString(R.string.pref_config_key_advertise_is_enabled))!!.isChecked,
             !findPreference<SwitchPreference>(getString(R.string.pref_config_key_datasaver_enabled))!!.isChecked,
@@ -147,6 +160,9 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         refreshSettings()
     }
 
+    /**
+     * Open a URL for the user
+     */
     private fun openURL(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         try {
@@ -157,7 +173,10 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         }
     }
 
+    /**
+     * When settings are changed, apply the new config
+     */
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        saveSettings()
+        applySettings()
     }
 }

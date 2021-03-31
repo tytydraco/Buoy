@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         preferences = findViewById(R.id.preferences)
 
+        /* If we are missing a permission, lock the user in the permission activity */
         if (!PermissionUtils.isPermissionsGranted(this, android.Manifest.permission.WRITE_SECURE_SETTINGS))
             goToPermissionActivity()
 

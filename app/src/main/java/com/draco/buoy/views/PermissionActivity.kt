@@ -22,6 +22,7 @@ class PermissionActivity : AppCompatActivity() {
 
         command = findViewById(R.id.command)
 
+        /* Copy ADB command to clipboard */
         command.setOnClickListener {
             val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("ADB Command", command.text.toString())
@@ -30,6 +31,7 @@ class PermissionActivity : AppCompatActivity() {
             Snackbar.make(command, R.string.copied, Snackbar.LENGTH_SHORT).show()
         }
 
+        /* Once permission is granted, return */
         viewModel.permissionGranted.observe(this) {
             if (it == true)
                 finish()
