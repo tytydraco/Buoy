@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.0-alpha12"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30"
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
