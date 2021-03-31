@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.draco.buoy.BuildConfig
 import com.draco.buoy.utils.PermissionUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -19,7 +20,7 @@ class PermissionActivityViewModel(application: Application) : AndroidViewModel(a
             ProcessBuilder(
                 "su",
                 "-c",
-                "pm grant com.draco.purr android.permission.WRITE_SECURE_SETTINGS"
+                "pm grant ${BuildConfig.APPLICATION_ID} android.permission.WRITE_SECURE_SETTINGS"
             ).start()
         } catch (_: Exception) {}
     }

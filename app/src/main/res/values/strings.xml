@@ -66,7 +66,7 @@
 
     <string name="pref_config_key_soundtrigger_enabled">soundtrigger_enabled</string>
     <string name="pref_config_title_soundtrigger_enabled">Enable Sound Triggers</string>
-    <string name="pref_config_summary_soundtrigger_enabled">Disable the SoundTrigger hardware API</string>
+    <string name="pref_config_summary_soundtrigger_enabled">Allow access to the SoundTrigger hardware API</string>
 
     <string name="pref_config_key_fullbackup_deferred">fullbackup_deferred</string>
     <string name="pref_config_title_fullbackup_deferred">Defer Full Backups</string>
