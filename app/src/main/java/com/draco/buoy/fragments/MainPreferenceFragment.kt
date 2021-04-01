@@ -227,7 +227,6 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             quickDozeEnabled.isChecked
         )
         batterySaverManager.apply(config)
-        refreshSettings()
     }
 
     /**
