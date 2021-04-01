@@ -26,23 +26,23 @@
 
     <string name="pref_profile_key_reset">reset</string>
     <string name="pref_profile_title_reset">Reset</string>
-    <string name="pref_profile_summary_reset">Undo all changes done by the app and restore secure settings to default</string>
+    <string name="pref_profile_summary_reset">Undo all changes done by the app</string>
 
     <string name="pref_profile_key_light">light</string>
     <string name="pref_profile_title_light">Light</string>
-    <string name="pref_profile_summary_light">Marginally conserve battery without impeding the user experience</string>
+    <string name="pref_profile_summary_light">Marginal conservation of battery power which barely affects the user experience</string>
 
     <string name="pref_profile_key_moderate">moderate</string>
     <string name="pref_profile_title_moderate">Moderate</string>
-    <string name="pref_profile_summary_moderate">Apply additional tweaks to save more battery without yet sacrificing performance</string>
+    <string name="pref_profile_summary_moderate">Balanced set of tweaks to conserve battery life while not hurting performace</string>
 
     <string name="pref_profile_key_high">high</string>
     <string name="pref_profile_title_high">High</string>
-    <string name="pref_profile_summary_high">Sacrifice significant performance for a significant gain in power</string>
+    <string name="pref_profile_summary_high">Aggressive reduction in power consumption with significant performace loss</string>
 
     <string name="pref_profile_key_extreme">extreme</string>
     <string name="pref_profile_title_extreme">Extreme</string>
-    <string name="pref_profile_summary_extreme">Apply the maximum changes available to save power at the expense of a fluid user experience</string>
+    <string name="pref_profile_summary_extreme">Ultimate set of tweaks to save as much power as possible</string>
 
     <string name="pref_key_export">export</string>
     <string name="pref_title_export">Export</string>
