@@ -53,75 +53,75 @@
     <string name="pref_summary_import">Configure using a new profile</string>
 
     <string name="pref_config_key_advertise_is_enabled">advertise_is_enabled</string>
-    <string name="pref_config_title_advertise_is_enabled">Advertise Power Saver</string>
+    <string name="pref_config_title_advertise_is_enabled">Advertise power saver</string>
     <string name="pref_config_summary_advertise_is_enabled">Alert apps that the device is in low power mode; some apps will use this information to reduce their power draw</string>
 
     <string name="pref_config_key_datasaver_enabled">datasaver_enabled</string>
-    <string name="pref_config_title_datasaver_enabled">Enable Data Saver</string>
+    <string name="pref_config_title_datasaver_enabled">Enable data saver</string>
     <string name="pref_config_summary_datasaver_enabled">Reduce the data sent and received on metered connections and on mobile data</string>
 
     <string name="pref_config_key_enable_night_mode">enable_night_mode</string>
-    <string name="pref_config_title_enable_night_mode">Enable Night Mode</string>
+    <string name="pref_config_title_enable_night_mode">Enable night mode</string>
     <string name="pref_config_summary_enable_night_mode">Use darker colors to reduce the power draw on OLED panels</string>
 
     <string name="pref_config_key_launch_boost_enabled">launch_boost_enabled</string>
-    <string name="pref_config_title_launch_boost_enabled">Enable Launch Boost</string>
+    <string name="pref_config_title_launch_boost_enabled">Enable launch boost</string>
     <string name="pref_config_summary_launch_boost_enabled">Accelerate the CPU while opening applications to expedite their startup time</string>
 
     <string name="pref_config_key_vibration_enabled">vibration_enabled</string>
-    <string name="pref_config_title_vibration_enabled">Enable Vibrations</string>
+    <string name="pref_config_title_vibration_enabled">Enable vibrations</string>
     <string name="pref_config_summary_vibration_enabled">Allow touch and notification vibrations</string>
 
     <string name="pref_config_key_animation_enabled">animation_enabled</string>
-    <string name="pref_config_title_animation_enabled">Enable Animations</string>
+    <string name="pref_config_title_animation_enabled">Enable animations</string>
     <string name="pref_config_summary_animation_enabled">Continue to display animations</string>
 
     <string name="pref_config_key_soundtrigger_enabled">soundtrigger_enabled</string>
-    <string name="pref_config_title_soundtrigger_enabled">Enable Sound Triggers</string>
+    <string name="pref_config_title_soundtrigger_enabled">Enable sound triggers</string>
     <string name="pref_config_summary_soundtrigger_enabled">Allow access to the SoundTrigger hardware API</string>
 
     <string name="pref_config_key_fullbackup_deferred">fullbackup_deferred</string>
-    <string name="pref_config_title_fullbackup_deferred">Defer Full Backups</string>
+    <string name="pref_config_title_fullbackup_deferred">Defer full backups</string>
     <string name="pref_config_summary_fullbackup_deferred">Reschedule device cloud backups for later</string>
 
     <string name="pref_config_key_keyvaluebackup_deferred">keyvaluebackup_deferred</string>
-    <string name="pref_config_title_keyvaluebackup_deferred">Defer KeyValue Backups</string>
+    <string name="pref_config_title_keyvaluebackup_deferred">Defer keyvalue backups</string>
     <string name="pref_config_summary_keyvaluebackup_deferred">Reschedule application settings cloud backups for later</string>
 
     <string name="pref_config_key_firewall_enabled">firewall_enabled</string>
-    <string name="pref_config_title_firewall_enabled">Enable Firewall</string>
+    <string name="pref_config_title_firewall_enabled">Enable firewall</string>
     <string name="pref_config_summary_firewall_enabled">Defend against possibly malicious web requests</string>
 
     <string name="pref_config_key_gps_mode">gps_mode</string>
-    <string name="pref_config_title_gps_mode">Location Mode</string>
+    <string name="pref_config_title_gps_mode">Location mode</string>
     <string name="pref_config_summary_gps_mode">How location requests are handled in low power mode</string>
 
     <string name="pref_config_key_adjust_brightness_enabled">adjust_brightness_enabled</string>
-    <string name="pref_config_title_adjust_brightness_enabled">Adjust Brightness</string>
+    <string name="pref_config_title_adjust_brightness_enabled">Adjust brightness</string>
     <string name="pref_config_summary_adjust_brightness_enabled">Reduce the maximum brightness on the panel</string>
 
     <string name="pref_config_key_adjust_brightness_factor">adjust_brightness_factor</string>
-    <string name="pref_config_title_adjust_brightness_factor">Brightness Factor</string>
+    <string name="pref_config_title_adjust_brightness_factor">Brightness factor</string>
     <string name="pref_config_summary_adjust_brightness_factor">By what factor to reduce the screen brightness by</string>
 
     <string name="pref_config_key_force_all_apps_standby">force_all_apps_standby</string>
-    <string name="pref_config_title_force_all_apps_standby">Force Apps Into Standby</string>
+    <string name="pref_config_title_force_all_apps_standby">Force apps into standby</string>
     <string name="pref_config_summary_force_all_apps_standby">Background apps are put to sleep very quickly</string>
 
     <string name="pref_config_key_force_background_check">force_background_check</string>
-    <string name="pref_config_title_force_background_check">Force Background Check</string>
+    <string name="pref_config_title_force_background_check">Force background check</string>
     <string name="pref_config_summary_force_background_check">Stop background services for idle processes</string>
 
     <string name="pref_config_key_optional_sensors_enabled">optional_sensors_enabled</string>
-    <string name="pref_config_title_optional_sensors_enabled">Enable Optional Sensors</string>
+    <string name="pref_config_title_optional_sensors_enabled">Enable optional sensors</string>
     <string name="pref_config_summary_optional_sensors_enabled">Allow unnecessary sensor requests (i.e. edge sensors)</string>
 
     <string name="pref_config_key_aod_enabled">aod_enabled</string>
-    <string name="pref_config_title_aod_enabled">Always-On-Display Enabled</string>
+    <string name="pref_config_title_aod_enabled">Always-on-display enabled</string>
     <string name="pref_config_summary_aod_enabled">Display the AOD in sleep mode</string>
 
     <string name="pref_config_key_quick_doze_enabled">quick_doze_enabled</string>
-    <string name="pref_config_title_quick_doze_enabled">Quick Doze Enabled</string>
+    <string name="pref_config_title_quick_doze_enabled">Quick doze enabled</string>
     <string name="pref_config_summary_quick_doze_enabled">Enter deep sleep as soon as the screen is turned off</string>
 
     <string name="pref_developer_title">Developer</string>
