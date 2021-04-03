@@ -34,11 +34,11 @@
 
     <string name="pref_profile_key_moderate">moderate</string>
     <string name="pref_profile_title_moderate">Moderate</string>
-    <string name="pref_profile_summary_moderate">Balanced set of tweaks to conserve battery life while not hurting performace</string>
+    <string name="pref_profile_summary_moderate">Balanced set of tweaks to conserve battery life while not hurting performance</string>
 
     <string name="pref_profile_key_high">high</string>
     <string name="pref_profile_title_high">High</string>
-    <string name="pref_profile_summary_high">Aggressive reduction in power consumption with significant performace loss</string>
+    <string name="pref_profile_summary_high">Aggressive reduction in power consumption with significant performance loss</string>
 
     <string name="pref_profile_key_extreme">extreme</string>
     <string name="pref_profile_title_extreme">Extreme</string>
