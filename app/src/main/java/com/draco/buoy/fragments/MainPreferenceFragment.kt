@@ -226,7 +226,12 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
             !aodEnabled.isChecked,
             quickDozeEnabled.isChecked
         )
-        batterySaverManager.apply(config)
+        try {
+            batterySaverManager.apply(config)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Snackbar.make(requireView(), getString(R.string.snackbar_failed_to_apply), Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     /**
