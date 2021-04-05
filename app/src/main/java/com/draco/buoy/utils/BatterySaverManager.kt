@@ -90,7 +90,6 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
             is BatterySaverConstantsConfig -> setConstantsConfig(config)
         }
 
-        //setLowPower(true)
         setLowPowerSticky(true)
         setLowPowerStickyAutoDisableEnabled(false)
     }
