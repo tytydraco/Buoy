@@ -6,7 +6,7 @@
             android:title="@string/pref_profile_title_default"
             android:summary="@string/pref_profile_summary_default"
             android:key="@string/pref_profile_key_default"
-            android:icon="@drawable/ic_baseline_undo_24" />
+            android:icon="@drawable/ic_baseline_api_24" />
         <Preference
             android:title="@string/pref_profile_title_light"
             android:summary="@string/pref_profile_summary_light"
