@@ -25,9 +25,9 @@
     <string name="category_about">About</string>
     <string name="category_config">Configuration</string>
 
-    <string name="pref_profile_key_reset">reset</string>
-    <string name="pref_profile_title_reset">Reset</string>
-    <string name="pref_profile_summary_reset">Undo all changes done by the app</string>
+    <string name="pref_profile_key_default">default</string>
+    <string name="pref_profile_title_default">Default</string>
+    <string name="pref_profile_summary_default">Use the device\'s default battery saver settings</string>
 
     <string name="pref_profile_key_light">light</string>
     <string name="pref_profile_title_light">Light</string>

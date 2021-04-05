@@ -106,8 +106,8 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         when (preference.key) {
-            getString(R.string.pref_profile_key_reset) -> {
-                batterySaverManager.reset()
+            getString(R.string.pref_profile_key_default) -> {
+                batterySaverManager.resetToDefault()
                 refreshSettings()
             }
             getString(R.string.pref_profile_key_light) -> {

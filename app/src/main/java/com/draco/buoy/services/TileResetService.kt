@@ -13,6 +13,6 @@ class TileResetService : TileService() {
 
     override fun onClick() {
         super.onClick()
-        batterySaverManager.reset()
+        batterySaverManager.resetToDefault()
     }
 }

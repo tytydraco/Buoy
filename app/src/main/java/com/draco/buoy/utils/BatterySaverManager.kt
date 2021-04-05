@@ -7,17 +7,6 @@ import com.draco.buoy.repositories.constants.BatterySaverSecureSettings
 
 class BatterySaverManager(private val contentResolver: ContentResolver) {
     /**
-     * Reset constants to default values
-     */
-    fun resetConstants() {
-        Settings.Global.putString(
-            contentResolver,
-            BatterySaverSecureSettings.BATTERY_SAVER_CONSTANTS,
-            null
-        )
-    }
-
-    /**
      * Enable or disable low power mode
      */
     fun setLowPower(state: Boolean) {
@@ -56,7 +45,7 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     /**
      * Set the raw battery saver constants secure setting
      */
-    fun setConstantsString(constants: String) {
+    fun setConstantsString(constants: String?) {
         Settings.Global.putString(
             contentResolver,
             BatterySaverSecureSettings.BATTERY_SAVER_CONSTANTS,
@@ -84,9 +73,9 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     /**
      * Quick way to apply either type of config
      */
-    fun apply(config: Any) {
+    fun apply(config: Any?) {
         when (config) {
-            is String -> setConstantsString(config)
+            is String? -> setConstantsString(config)
             is BatterySaverConstantsConfig -> setConstantsConfig(config)
         }
 
@@ -96,12 +85,9 @@ class BatterySaverManager(private val contentResolver: ContentResolver) {
     }
 
     /**
-     * Quick way to reset everything
+     * Reset constants to default values
      */
-    fun reset() {
-        resetConstants()
-        setLowPower(false)
-        setLowPowerSticky(false)
-        setLowPowerStickyAutoDisableEnabled(true)
+    fun resetToDefault() {
+        apply(null)
     }
 }

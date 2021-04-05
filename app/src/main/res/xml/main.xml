@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/category_profiles">
         <Preference
-            android:title="@string/pref_profile_title_reset"
-            android:summary="@string/pref_profile_summary_reset"
-            android:key="@string/pref_profile_key_reset"
+            android:title="@string/pref_profile_title_default"
+            android:summary="@string/pref_profile_summary_default"
+            android:key="@string/pref_profile_key_default"
             android:icon="@drawable/ic_baseline_undo_24" />
         <Preference
             android:title="@string/pref_profile_title_light"
