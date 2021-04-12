@@ -13,6 +13,8 @@
     <string name="snackbar_intent_failed">Could not handle this action</string>
     <string name="snackbar_failed_to_apply">Failed to apply; device is likely incompatible</string>
     <string name="snackbar_low_power">Changes will take effect when device is in battery saver mode</string>
+    <string name="snackbar_applied">Successfully applied profile</string>
+    <string name="snackbar_reset">Successfully reset profile</string>
 
     <string name="developer_url">https://www.github.com/tytydraco</string>
     <string name="source_url">https://www.github.com/tytydraco/Buoy</string>

@@ -96,22 +96,27 @@ class MainPreferenceFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         when (preference.key) {
             getString(R.string.pref_profile_key_default) -> {
                 batterySaverManager.resetToDefault()
+                Snackbar.make(requireView(), getString(R.string.snackbar_reset), Snackbar.LENGTH_SHORT).show()
                 refreshSettings()
             }
             getString(R.string.pref_profile_key_light) -> {
                 batterySaverManager.apply(BatterySaverConstantsConfigProfiles.LIGHT)
+                Snackbar.make(requireView(), getString(R.string.snackbar_applied), Snackbar.LENGTH_SHORT).show()
                 refreshSettings()
             }
             getString(R.string.pref_profile_key_moderate) -> {
                 batterySaverManager.apply(BatterySaverConstantsConfigProfiles.MODERATE)
+                Snackbar.make(requireView(), getString(R.string.snackbar_applied), Snackbar.LENGTH_SHORT).show()
                 refreshSettings()
             }
             getString(R.string.pref_profile_key_high) -> {
                 batterySaverManager.apply(BatterySaverConstantsConfigProfiles.HIGH)
+                Snackbar.make(requireView(), getString(R.string.snackbar_applied), Snackbar.LENGTH_SHORT).show()
                 refreshSettings()
             }
             getString(R.string.pref_profile_key_extreme) -> {
                 batterySaverManager.apply(BatterySaverConstantsConfigProfiles.EXTREME)
+                Snackbar.make(requireView(), getString(R.string.snackbar_applied), Snackbar.LENGTH_SHORT).show()
                 refreshSettings()
             }
 
