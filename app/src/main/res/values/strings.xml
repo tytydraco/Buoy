@@ -5,7 +5,7 @@
 
     <string name="permission_title">Woah there!</string>
     <string name="permission_message">We need a special permission to continue. Use ADB to run the following command (one line):</string>
-    <string name="permission_command">adb shell pm grant com.draco.buoy android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="permission_command" translatable="false">adb shell pm grant com.draco.buoy android.permission.WRITE_SECURE_SETTINGS</string>
 
     <string name="please_wait">Waiting for permission</string>
     <string name="copied">Copied to clipboard</string>
@@ -16,9 +16,9 @@
     <string name="snackbar_applied">Successfully applied profile</string>
     <string name="snackbar_reset">Successfully reset profile</string>
 
-    <string name="developer_url">https://www.github.com/tytydraco</string>
-    <string name="source_url">https://www.github.com/tytydraco/Buoy</string>
-    <string name="contact_url">mailto:tylernij@gmail.com</string>
+    <string name="developer_url" translatable="false">https://www.github.com/tytydraco</string>
+    <string name="source_url" translatable="false">https://www.github.com/tytydraco/Buoy</string>
+    <string name="contact_url" translatable="false">mailto:tylernij@gmail.com</string>
 
     <string name="export_share_title">Battery Saver Constants</string>
 
@@ -27,119 +27,119 @@
     <string name="category_about">About</string>
     <string name="category_config">Configuration</string>
 
-    <string name="pref_profile_key_default">default</string>
+    <string name="pref_profile_key_default" translatable="false">default</string>
     <string name="pref_profile_title_default">Default</string>
     <string name="pref_profile_summary_default">Use the device\'s default battery saver settings</string>
 
-    <string name="pref_profile_key_light">light</string>
+    <string name="pref_profile_key_light" translatable="false">light</string>
     <string name="pref_profile_title_light">Light</string>
     <string name="pref_profile_summary_light">Marginal conservation of battery power which barely affects the user experience</string>
 
-    <string name="pref_profile_key_moderate">moderate</string>
+    <string name="pref_profile_key_moderate" translatable="false">moderate</string>
     <string name="pref_profile_title_moderate">Moderate</string>
     <string name="pref_profile_summary_moderate">Balanced set of tweaks to conserve battery life while not hurting performance</string>
 
-    <string name="pref_profile_key_high">high</string>
+    <string name="pref_profile_key_high" translatable="false">high</string>
     <string name="pref_profile_title_high">High</string>
     <string name="pref_profile_summary_high">Aggressive reduction in power consumption with significant performance loss</string>
 
-    <string name="pref_profile_key_extreme">extreme</string>
+    <string name="pref_profile_key_extreme" translatable="false">extreme</string>
     <string name="pref_profile_title_extreme">Extreme</string>
     <string name="pref_profile_summary_extreme">Ultimate set of tweaks to save as much power as possible</string>
 
-    <string name="pref_key_export">export</string>
+    <string name="pref_key_export" translatable="false">export</string>
     <string name="pref_title_export">Export</string>
     <string name="pref_summary_export">Share the battery saver constants elsewhere</string>
 
-    <string name="pref_key_import">import</string>
+    <string name="pref_key_import" translatable="false">import</string>
     <string name="pref_title_import">Import</string>
     <string name="pref_summary_import">Configure using a new profile</string>
 
-    <string name="pref_config_key_advertise_is_enabled">advertise_is_enabled</string>
+    <string name="pref_config_key_advertise_is_enabled" translatable="false">advertise_is_enabled</string>
     <string name="pref_config_title_advertise_is_enabled">Advertise power saver</string>
     <string name="pref_config_summary_advertise_is_enabled">Alert apps that the device is in low power mode; some apps will use this information to reduce their power draw</string>
 
-    <string name="pref_config_key_datasaver_enabled">datasaver_enabled</string>
+    <string name="pref_config_key_datasaver_enabled" translatable="false">datasaver_enabled</string>
     <string name="pref_config_title_datasaver_enabled">Enable data saver</string>
     <string name="pref_config_summary_datasaver_enabled">Reduce the data sent and received on metered connections and on mobile data</string>
 
-    <string name="pref_config_key_enable_night_mode">enable_night_mode</string>
+    <string name="pref_config_key_enable_night_mode" translatable="false">enable_night_mode</string>
     <string name="pref_config_title_enable_night_mode">Enable night mode</string>
     <string name="pref_config_summary_enable_night_mode">Use darker colors to reduce the power draw on OLED panels</string>
 
-    <string name="pref_config_key_launch_boost_enabled">launch_boost_enabled</string>
+    <string name="pref_config_key_launch_boost_enabled" translatable="false">launch_boost_enabled</string>
     <string name="pref_config_title_launch_boost_enabled">Enable launch boost</string>
     <string name="pref_config_summary_launch_boost_enabled">Accelerate the CPU while opening applications to expedite their startup time</string>
 
-    <string name="pref_config_key_vibration_enabled">vibration_enabled</string>
+    <string name="pref_config_key_vibration_enabled" translatable="false">vibration_enabled</string>
     <string name="pref_config_title_vibration_enabled">Enable vibrations</string>
     <string name="pref_config_summary_vibration_enabled">Allow touch and notification vibrations</string>
 
-    <string name="pref_config_key_animation_enabled">animation_enabled</string>
+    <string name="pref_config_key_animation_enabled" translatable="false">animation_enabled</string>
     <string name="pref_config_title_animation_enabled">Enable animations</string>
     <string name="pref_config_summary_animation_enabled">Continue to display animations</string>
 
-    <string name="pref_config_key_soundtrigger_enabled">soundtrigger_enabled</string>
+    <string name="pref_config_key_soundtrigger_enabled" translatable="false">soundtrigger_enabled</string>
     <string name="pref_config_title_soundtrigger_enabled">Enable sound triggers</string>
     <string name="pref_config_summary_soundtrigger_enabled">Allow access to the SoundTrigger hardware API</string>
 
-    <string name="pref_config_key_fullbackup_deferred">fullbackup_deferred</string>
+    <string name="pref_config_key_fullbackup_deferred" translatable="false">fullbackup_deferred</string>
     <string name="pref_config_title_fullbackup_deferred">Defer full backups</string>
     <string name="pref_config_summary_fullbackup_deferred">Reschedule device cloud backups for later</string>
 
-    <string name="pref_config_key_keyvaluebackup_deferred">keyvaluebackup_deferred</string>
+    <string name="pref_config_key_keyvaluebackup_deferred" translatable="false">keyvaluebackup_deferred</string>
     <string name="pref_config_title_keyvaluebackup_deferred">Defer keyvalue backups</string>
     <string name="pref_config_summary_keyvaluebackup_deferred">Reschedule application settings cloud backups for later</string>
 
-    <string name="pref_config_key_firewall_enabled">firewall_enabled</string>
+    <string name="pref_config_key_firewall_enabled" translatable="false">firewall_enabled</string>
     <string name="pref_config_title_firewall_enabled">Enable firewall</string>
     <string name="pref_config_summary_firewall_enabled">Defend against possibly malicious web requests</string>
 
-    <string name="pref_config_key_gps_mode">gps_mode</string>
+    <string name="pref_config_key_gps_mode" translatable="false">gps_mode</string>
     <string name="pref_config_title_gps_mode">Location mode</string>
     <string name="pref_config_summary_gps_mode">How location requests are handled in low power mode</string>
 
-    <string name="pref_config_key_adjust_brightness_enabled">adjust_brightness_enabled</string>
+    <string name="pref_config_key_adjust_brightness_enabled" translatable="false">adjust_brightness_enabled</string>
     <string name="pref_config_title_adjust_brightness_enabled">Adjust brightness</string>
     <string name="pref_config_summary_adjust_brightness_enabled">Reduce the maximum brightness on the panel</string>
 
-    <string name="pref_config_key_adjust_brightness_factor">adjust_brightness_factor</string>
+    <string name="pref_config_key_adjust_brightness_factor" translatable="false">adjust_brightness_factor</string>
     <string name="pref_config_title_adjust_brightness_factor">Brightness factor</string>
     <string name="pref_config_summary_adjust_brightness_factor">By what factor to reduce the screen brightness by</string>
 
-    <string name="pref_config_key_force_all_apps_standby">force_all_apps_standby</string>
+    <string name="pref_config_key_force_all_apps_standby" translatable="false">force_all_apps_standby</string>
     <string name="pref_config_title_force_all_apps_standby">Force apps into standby</string>
     <string name="pref_config_summary_force_all_apps_standby">Background apps are put to sleep very quickly</string>
 
-    <string name="pref_config_key_force_background_check">force_background_check</string>
-    <string name="pref_config_title_force_background_check">Force background check</string>
+    <string name="pref_config_key_force_background_check" translatable="false">force_background_check</string>
     <string name="pref_config_summary_force_background_check">Stop background services for idle processes</string>
 
-    <string name="pref_config_key_optional_sensors_enabled">optional_sensors_enabled</string>
+    <string name="pref_config_key_optional_sensors_enabled" translatable="false">optional_sensors_enabled</string>
     <string name="pref_config_title_optional_sensors_enabled">Enable optional sensors</string>
     <string name="pref_config_summary_optional_sensors_enabled">Allow unnecessary sensor requests (i.e. edge sensors)</string>
 
-    <string name="pref_config_key_aod_enabled">aod_enabled</string>
+    <string name="pref_config_key_aod_enabled" translatable="false">aod_enabled</string>
     <string name="pref_config_title_aod_enabled">Always-on-display enabled</string>
     <string name="pref_config_summary_aod_enabled">Display the AOD in sleep mode</string>
 
-    <string name="pref_config_key_quick_doze_enabled">quick_doze_enabled</string>
+    <string name="pref_config_key_quick_doze_enabled" translatable="false">quick_doze_enabled</string>
     <string name="pref_config_title_quick_doze_enabled">Quick doze enabled</string>
     <string name="pref_config_summary_quick_doze_enabled">Enter deep sleep as soon as the screen is turned off</string>
 
     <string name="pref_developer_title">Developer</string>
-    <string name="pref_developer_summary">Tyler Nijmeh</string>
-    <string name="pref_developer_key">developer</string>
+    <string name="pref_developer_summary" translatable="false">Tyler Nijmeh</string>
+    <string name="pref_developer_key" translatable="false">developer</string>
 
     <string name="pref_source_title">Source code</string>
     <string name="pref_source_summary">Check out this project on GitHub</string>
-    <string name="pref_source_key">source</string>
+    <string name="pref_source_key" translatable="false">source</string>
 
     <string name="pref_contact_title">Contact</string>
     <string name="pref_contact_summary">Email me with questions, comments, and concerns</string>
-    <string name="pref_contact_key">contact</string>
+    <string name="pref_contact_key" translatable="false">contact</string>
 
     <string name="pref_licenses_title">Licenses</string>
     <string name="pref_licenses_summary">View the open source licenses</string>
-    <string name="pref_licenses_key">licenses</string>
+    <string name="pref_licenses_key" translatable="false">licenses</string>
+    <string name="pref_config_title_force_background_check">Force background check</string>
 </resources>
