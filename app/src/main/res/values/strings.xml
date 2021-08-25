@@ -105,7 +105,7 @@
 
     <string name="pref_config_key_adjust_brightness_factor" translatable="false">adjust_brightness_factor</string>
     <string name="pref_config_title_adjust_brightness_factor">Brightness factor</string>
-    <string name="pref_config_summary_adjust_brightness_factor">By what factor to reduce the screen brightness by</string>
+    <string name="pref_config_summary_adjust_brightness_factor">To what percentage reduce reduce the screen brightness</string>
 
     <string name="pref_config_key_force_all_apps_standby" translatable="false">force_all_apps_standby</string>
     <string name="pref_config_title_force_all_apps_standby">Force apps into standby</string>
