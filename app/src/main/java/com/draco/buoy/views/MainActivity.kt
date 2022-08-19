@@ -5,17 +5,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 import com.draco.buoy.R
+import com.draco.buoy.databinding.ActivityMainBinding
 import com.draco.buoy.fragments.MainPreferenceFragment
 import com.draco.buoy.utils.PermissionUtils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var preferences: FragmentContainerView
-
+    private lateinit var binding: ActivityMainBinding;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        // inflate the layout and set content view to root
+        binding = ActivityMainBinding.inflate(layoutInflater);
+        setContentView(binding.root)
 
-        preferences = findViewById(R.id.preferences)
+        preferences = binding.preferences;
 
         /* If we are missing a permission, lock the user in the permission activity */
         if (!PermissionUtils.isPermissionsGranted(this, android.Manifest.permission.WRITE_SECURE_SETTINGS))
